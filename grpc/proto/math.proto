@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package proto;
+
+// MathRequest will be converted into Go variable that we will used in Go apps.
+message MathRequest {
+    int64 firstParam = 1;
+    int64 secondParam = 2;
+}
+
+// MathResponse will be converted into Go variable that we will used in Go apps.
+message MathResponse {
+    int64 result = 1;
+}
+
+
+// MathFunc is like interface in Go
+// The actual interface that will be used in Go apps,
+// will be generated based on service MathFunc.
+// Context will be added to input and error will be added to output,
+// and the input & output that we defined will become pointer.
+// eg. Add(context.Context, *MathRequest) (*MathResponse, error)
+service Math {
+    rpc Add(MathRequest) returns (MathResponse);
+    rpc Multiply(MathRequest) returns (MathResponse);
+}

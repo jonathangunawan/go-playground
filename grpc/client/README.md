@@ -1,0 +1,3 @@
+This package not really necessary, but it's better to make this Client Package. So whoever that will be used this gRPC just can call this Package to access gRPC. In this case user just need to call NewMath function, then call the function that needed.
+
+You also can make a new Layer in this package, for example you want to every request to gRPC server need to be validated. You can take a look at client_secure.go, actually it's similar with client.go but I add new Layer with same function Name, Input & Output to do validation. (I also make client private instead of public, so user only can interact with listed function)
